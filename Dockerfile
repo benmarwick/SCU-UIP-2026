@@ -1,8 +1,20 @@
 # pull base image 
 FROM rocker/binder:latest
 
-# Copy the installation script into the image
+# --- 1. Install R Packages ---
+# Copy the installation script into the image and run it as root
 COPY install.R /tmp/install.R
-
-# Run the script
+USER root
 RUN Rscript /tmp/install.R
+
+# --- 2. Copy your GitHub files into the container ---
+# Copy all files from your repo into the jovyan home directory
+COPY . /home/jovyan/
+
+# --- 3. Fix File Permissions ---
+# Give the 'jovyan' user ownership of the files so you can edit/save them in RStudio
+RUN chown -R jovyan:jovyan /home/jovyan
+
+# --- 4. Set the active user ---
+# Switch back to the normal 'jovyan' user for security when the container runs
+USER jovyan

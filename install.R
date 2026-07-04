@@ -1,31 +1,24 @@
 # install.R
 
-# --- 1. Setup User Library ---
-# We use a user library to ensure our packages override any outdated 
-# packages pre-installed in the base Docker image's system library.
-user_lib <- "~/R/library"
-dir.create(user_lib, recursive = TRUE, showWarnings = FALSE)
-.libPaths(c(user_lib, .libPaths()))
+# Define the global system library path. 
+# This ensures packages are visible to the 'jovyan' user when Binder launches.
+sys_lib <- "/usr/local/lib/R/site-library"
 
-# --- 2. Fix the C-API Version Mismatch ---
-# Force-recompile core tidyverse dependencies from source to fix the 
-# 'undefined symbol: SETLENGTH' error caused by the new R version.
+# 1. Fix the C-API mismatch by recompiling core dependencies from source.
+# This overwrites the broken pre-installed versions in the base image.
 install.packages(c("vctrs", "rlang", "cli", "glue", "lifecycle"), 
-                 lib = user_lib, 
+                 lib = sys_lib, 
                  type = "source",
                  repos = "https://cloud.r-project.org")
 
-# --- 3. Install Workshop Packages ---
+# 2. Install the rest of the workshop packages
 packages <- c(
-  # Core tidyverse and plotting
   'tidyverse', 'ggcorrplot', 'broom', 'GGally', 'cowplot', 'ggbeeswarm',
   'plotrix', 'RColorBrewer', 'viridis',
-  # Stats and Multivariate
   'FactoMineR', 'factoextra', 'performance', 'FSA', 'infer',
-  # Data and Misc
   'here', 'readxl', 'rio', 'Rmisc', 'quarto', 'plyr', 'pbapply', 'remotes'
 )
 
 install.packages(packages, 
-                 lib = user_lib, 
+                 lib = sys_lib, 
                  repos = "https://cloud.r-project.org")
