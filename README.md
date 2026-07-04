@@ -13,7 +13,7 @@ Install on your computer as follows:
 - [RStudio](https://posit.co/download/rstudio-desktop/) 
 - Install required packages: `install.packages(c("tidyverse", "ggcorrplot", "broom", "FactoMineR", "factoextra", "GGally"))`
 
-If you are not able to install software on a device, click on this button to write code in RStudio in your web browser: [![Binder](http://mybinder.org/badge_logo.svg)](http://mybinder.org/v2/gh/benmarwick/SCU-UIP-2026/main?urlpath=rstudio) Note that no log in required, but file changes do not persist beyond the current session, and your session will time out after a while. So download your work to your device before closing or moving away from the tab.
+If you are not able to install software on a device, click on this button to write code in RStudio in your web browser: [![Binder](http://mybinder.org/badge_logo.svg)](http://mybinder.org/v2/gh/benmarwick/SCU-UIP-2026/HEAD?urlpath=rstudio) Note that no log in required, but file changes do not persist beyond the current session, and your session will time out after a while. So download your work to your device before closing or moving away from the tab.
 
 ## Workshop Schedule
 
