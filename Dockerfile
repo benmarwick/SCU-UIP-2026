@@ -1,13 +1,13 @@
-# pull base image from UW-IT here https://github.com/uw-it-aca/rttl-notebooks/tree/main/rstudio
-FROM us-west1-docker.pkg.dev/uwit-mci-axdd/rttl-images/jupyter-rstudio-notebook:2.4.5
- 
+# pull base image 
+FROM rocker/binder:latest
+
 # install some R packages for the workshop
 # RUN sudo apt-get install libfontconfig1-dev -y
 RUN R -e "install.packages(c( \
   'broom', 'cowplot', 'ggbeeswarm', 'GGally', 'ggcorrplot', \
   'RColorBrewer', 'viridis', 'here', 'readxl', \
   'FactoMineR', 'factoextra', 'performance', 'FSA', \
-  'infer', 'Rmisc', 'quarto', 'remotes' \
+  'infer', 'Rmisc', 'quarto', 'remotes', 'ragg',  \
 ), repos='https://cloud.r-project.org')"
 
 # --- Metadata ---
