@@ -62,17 +62,23 @@ SCU-UIP-2026/
 │   ├── 03-1_wednesday_lesson.R      # Wed L1: visualisation
 │   ├── 03-2_wednesday_lesson.R      # Wed L2: statistical inference
 │   ├── 04-1_thursday_lesson.R       # Thu L1: PCA
-│   ├── 04-2_thursday_lesson.R       # Thu L2: capstone (placeholder)
+│   ├── 04-2_thursday_lesson.R       # Thu L2: capstone
 │   ├── extract_lesson_code.R        # Builds the live demo script
 │   └── live-demo-script.R           # Combined R code from all lessons
-├── lithics_raw.csv                  # Student-facing raw data
-├── lithics_clean.csv                # Instructor verification only
-└── SCU-UIP-2026.Rproj               # RStudio project file
+├── data/
+│   ├── lithics_raw.csv              # Student-facing raw data
+│   └── lithics_clean.csv            # Instructor verification only
+├── readings/                        # PDFs for student readings
+├── slides/                          # Lecture slides (gitignored)
+├── Dockerfile                       # Binder configuration
+├── CLAUDE.md                        # AI agent instructions
+├── SCU-UIP-2026.Rproj               # RStudio project file
+└── README.md
 ```
 
 ## Preparing the Live Demo Script
 
-`code/extract_lesson_code.R` reads every lesson `.R` file, extracts executable R code (stripping pure-comment and blank lines), adds day/lesson divider comments, and inserts blank lines between separate statements. The output is `code/live-demo-script.R`, a single file the instructor can print out and read from for live coding demos.
+`code/extract_lesson_code.R` reads every lesson `.R` file, extracts executable R code (stripping pure-comment and blank lines), adds day/lesson divider comments, and inserts blank lines between separate statements. The output is `data/live-demo-script.R`, a single file the instructor can print out and read from for live coding demos.
 
 To regenerate after editing lesson files:
 
