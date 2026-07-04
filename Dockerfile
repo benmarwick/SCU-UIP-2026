@@ -13,7 +13,7 @@ RUN Rscript /tmp/install.R
 
 # --- 2. Copy your GitHub files into the container ---
 # Copy all files from your repo into the home directory
-COPY data/lithics_raw.csv  /home/${NB_USER}/
+COPY .  /home/${NB_USER}/
 
 
 
