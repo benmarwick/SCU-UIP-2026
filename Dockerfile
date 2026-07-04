@@ -12,8 +12,9 @@ RUN Rscript /tmp/install.R
 COPY . /home/jovyan/
 
 # --- 3. Fix File Permissions ---
-# Give the 'jovyan' user ownership of the files so you can edit/save them in RStudio
-RUN chown -R jovyan:jovyan /home/jovyan
+# Give the 'jovyan' user ownership of the files so you can edit/save them in RStudio.
+# NOTE: In Jupyter/Rocker images, the group is named 'users', not 'jovyan'!
+RUN chown -R jovyan:users /home/jovyan
 
 # --- 4. Set the active user ---
 # Switch back to the normal 'jovyan' user for security when the container runs
