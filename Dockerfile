@@ -1,5 +1,5 @@
 # pull base image 
-FROM rocker/binder:4.4.1
+FROM rocker/binder
 
 # --- 1. Install R Packages ---
 # Copy the installation script into the image and run it as root
