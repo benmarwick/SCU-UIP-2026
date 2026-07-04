@@ -1,60 +1,21 @@
 # pull base image from UW-IT here https://github.com/uw-it-aca/rttl-notebooks/tree/main/rstudio
 FROM us-west1-docker.pkg.dev/uwit-mci-axdd/rttl-images/jupyter-rstudio-notebook:2.4.5
  
-# install some R packages useful for lithic analysis
+# install some R packages for the workshop
 # RUN sudo apt-get install libfontconfig1-dev -y
-RUN R -e "install.packages(c(                    \
-                             # data manipulation \
-                             'broom',            \
-                             # plotting          \
-                             'cowplot',          \
-                             'ggbeeswarm',       \
-                             'GGally',           \
-                             'ggcorrplot',       \
-                             'ggrepel',          \
-                             'ggpmisc',          \
-                             'ggtext',           \
-                             'ggridges',         \
-                             'ggmap',            \
-                             'plotrix',          \
-                             'RColorBrewer',     \
-                             'viridis',          \
-                             'see',              \
-                             # file handling     \
-                             'here',             \
-                             'readxl',           \
-                             'rio',              \
-                             # stats             \
-                             'tabula',           \
-                             'tesselle',         \
-                             'dimensio',         \
-                             'FactoMineR',       \
-                             'factoextra',       \
-                             'performance',      \
-                             'FSA',              \
-                             'infer',            \
-                             # palaeoecology     \
-                             'aqp',              \
-                             'tidypaleo',        \
-                             'vegan',            \
-                             'rioja',            \
-                             'ggtern',           \
-                             # misc              \
-                             'Rmisc',            \
-                             'rcarbon',          \
-                             'quarto',           \
-                             'Bchron',           \
-                             'plyr',             \
-                             'pbapply',          \
-                             'remotes'           \
-                              ), repos='https://cran.rstudio.com')"
+RUN R -e "install.packages(c( \
+  'broom', 'cowplot', 'ggbeeswarm', 'GGally', 'ggcorrplot', \
+  'RColorBrewer', 'viridis', 'here', 'readxl', \
+  'FactoMineR', 'factoextra', 'performance', 'FSA', \
+  'infer', 'Rmisc', 'quarto', 'remotes' \
+), repos='https://cloud.r-project.org')"
 
 # --- Metadata ---
 LABEL maintainer = "Ben Marwick <bmarwick@uw.edu>"  \
   org.opencontainers.image.description="Dockerfile for the SCU-UIP 2026 workshop" \
   org.opencontainers.image.created="2022-11" \
   org.opencontainers.image.authors="Ben Marwick" \
-  org.opencontainers.image.url="https://github.com/benmarwick/ARCHY-488-Lithic-Technology-Lab/blob/master/Dockerfile" \
-  org.opencontainers.image.documentation="https://github.com/benmarwick/ARCHY-488-Lithic-Technology-Lab/" \
+  org.opencontainers.image.url="https://github.com/benmarwick/SCU-UIP-2026" \
+  org.opencontainers.image.documentation="https://github.com/benmarwick/SCU-UIP-2026" \
   org.opencontainers.image.licenses="Apache-2.0" \
   org.label-schema.description="Reproducible workflow image (license: Apache 2.0)"
