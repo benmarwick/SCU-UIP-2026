@@ -131,7 +131,7 @@ lithics_clean <- lithics_step3 |>
 # much was removed - this number should be SMALL (a handful of rows out of
 # 300). If a filter() step ever removes a large fraction of the dataset,
 # that is a sign the threshold is wrong, not that the data is that bad.
-nrow(lithics_step3) - nrow(lithics_clean)
+# nrow(lithics_step3) - nrow(lithics_clean)
 
 # recheck the plot to confirm that 
 boxplot(length_mm ~ period, data = lithics_clean)

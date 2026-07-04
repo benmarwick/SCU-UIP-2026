@@ -391,7 +391,7 @@ lithics_dirty$giur[outlier_rows[4]] <- 45
 # =============================================================================
 
 lithics_dirty_csv <- lithics_dirty |> dplyr::select(-elongation)
-write_csv(lithics_dirty_csv, "lithics_raw.csv")
+write_csv(lithics_dirty_csv, "data/lithics_raw.csv")
 
 
 # =============================================================================
@@ -433,42 +433,4 @@ verify_summary  # bare evaluation, not print() - visible in RStudio/Quarto outpu
 # =============================================================================
 
 
-# =============================================================================
-# SECTION 12: EXTRACT R CODE FROM LESSON FILES -> live-demo-script.R
-# =============================================================================
-# Reads every lesson .R file in code/, keeps only executable R code lines
-# plus the DAY/LESSON divider comments, and writes them into a single file
-# the instructor can source for live coding demos.
 
-lesson_files <- list.files(
-  path       = "code",
-  pattern    = "^[0-9]{2}-[0-9]{2}_.*\\.R$",
-  full.names = TRUE
-)
-lesson_files <- sort(lesson_files)
-# exclude this script itself
-lesson_files <- setdiff(lesson_files, "code/00_simulate_lithics.R")
-
-output_lines <- character()
-
-for (f in lesson_files) {
-  lines <- readLines(f, warn = FALSE)
-
-  # extract the DAY/LESSON divider line (e.g. "# DAY: Monday | LESSON: 1 ...")
-  divider <- grep("^#\\s*DAY:", lines, value = TRUE)
-  if (length(divider) > 0) {
-    divider <- paste0("\n# ", str_squish(sub("^#\\s*", "", divider[1])))
-  } else {
-    divider <- paste0("\n# --- ", basename(f), " ---")
-  }
-
-  # keep only non-comment, non-blank lines (the actual R code)
-  code_lines <- lines[!grepl("^\\s*#", lines) & nchar(trimws(lines)) > 0]
-
-  if (length(code_lines) > 0) {
-    output_lines <- c(output_lines, divider, "", code_lines, "")
-  }
-}
-
-writeLines(output_lines, "data/live-demo-script.R")
-message("Wrote live-demo-script.R with code from ", length(lesson_files), " lesson files")
