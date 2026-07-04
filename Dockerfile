@@ -7,7 +7,7 @@ RUN R -e "install.packages(c( \
   'broom', 'cowplot', 'ggbeeswarm', 'GGally', 'ggcorrplot', \
   'RColorBrewer', 'viridis', 'here', 'readxl', \
   'FactoMineR', 'factoextra', 'performance', 'FSA', \
-  'infer', 'Rmisc', 'quarto', 'remotes', 'ragg',  \
+  'infer', 'Rmisc', 'quarto', 'remotes', 'ragg'  \
 ), repos='https://cloud.r-project.org')"
 
 # --- Metadata ---
