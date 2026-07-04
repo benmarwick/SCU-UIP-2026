@@ -12,7 +12,7 @@ COPY install.R /tmp/install.R
 RUN Rscript /tmp/install.R
 
 # --- 2. Copy your GitHub files into the container ---
-# Copy all files from your repo into the jovyan home directory
-COPY . /home/jovyan/
+# Copy all files from your repo into the home directory
+COPY . /home/${NB_USER}/
 
 
