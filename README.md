@@ -61,14 +61,6 @@ SCU-UIP-2026/
 │   ├── 04-2_thursday_lesson.R       # Thu L2: capstone (placeholder)
 │   ├── extract_lesson_code.R        # Builds the live demo script
 │   └── live-demo-script.R           # Combined R code from all lessons
-├── slides/
-│   ├── SCU-UIP-class-01-1-Mon.pptx
-│   ├── SCU-UIP-class-01-2-Mon.pptx
-│   ├── SCU-UIP-class-02-1-Tue.pptx
-│   ├── SCU-UIP-class-02-2-Tue.pptx
-│   ├── SCU-UIP-class-03-1-Wed.pptx
-│   ├── SCU-UIP-class-03-2-Wed.pptx
-│   └── SCU-UIP-class-04-1-Thu.pptx
 ├── lithics_raw.csv                  # Student-facing raw data
 ├── lithics_clean.csv                # Instructor verification only
 └── SCU-UIP-2026.Rproj               # RStudio project file
