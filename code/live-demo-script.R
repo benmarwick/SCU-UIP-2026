@@ -38,8 +38,6 @@ lithics_clean <- lithics_step3 |>
     giur <= 1
   )
 
-nrow(lithics_step3) - nrow(lithics_clean)
-
 boxplot(length_mm ~ period, data = lithics_clean)
 
 glimpse(lithics_clean)

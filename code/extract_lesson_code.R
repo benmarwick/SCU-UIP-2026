@@ -59,3 +59,7 @@ for (f in lesson_files) {
 
 writeLines(output_lines, "code/live-demo-script.R")
 message("Wrote live-demo-script.R with code from ", length(lesson_files), " lesson files")
+
+suppressWarnings(source("code/live-demo-script.R"))
+message("Ran live-demo-script.R to test it all works")
+

@@ -3,15 +3,17 @@
 
 A four-day workshop teaching introductory R for archaeological data analysis, using a simulated Palaeolithic lithic dataset. Students learn data cleaning, visualisation, statistical inference, and multivariate methods while exploring genuine patterns in Lower, Middle, and Upper Palaeolithic stone tool assemblages. 
 
-Click on this button to write code in RStudio in your web browser: [![Binder](http://mybinder.org/badge_logo.svg)](http://mybinder.org/v2/gh/benmarwick/SCU-UIP-2026/main?urlpath=rstudio) Note that no log in required, but file changes do not persist beyond the current session, and your session will time out after a while. So download your work to your device before closing or moving away from the tab.
-
 ## Prerequisites
+
+No prior R experience is required. These lessons cover RStudio orientation, objects, functions, and data import from scratch.
+
+Install on your computer as follows:
 
 - [R](https://cloud.r-project.org/) 
 - [RStudio](https://posit.co/download/rstudio-desktop/) 
 - Install required packages: `install.packages(c("tidyverse", "ggcorrplot", "broom", "FactoMineR", "factoextra", "GGally"))`
 
-No prior R experience is required. The Monday lessons cover RStudio orientation, objects, functions, and data import from scratch.
+If you are not able to install software on a device, click on this button to write code in RStudio in your web browser: [![Binder](http://mybinder.org/badge_logo.svg)](http://mybinder.org/v2/gh/benmarwick/SCU-UIP-2026/main?urlpath=rstudio) Note that no log in required, but file changes do not persist beyond the current session, and your session will time out after a while. So download your work to your device before closing or moving away from the tab.
 
 ## Workshop Schedule
 
