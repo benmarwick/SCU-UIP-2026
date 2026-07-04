@@ -3,7 +3,7 @@
 
 A four-day workshop teaching introductory R for archaeological data analysis, using a simulated Palaeolithic lithic dataset. Students learn data cleaning, visualisation, statistical inference, and multivariate methods while exploring genuine patterns in Lower, Middle, and Upper Palaeolithic stone tool assemblages. 
 
-Click on this button to write code in RStudio in your web browser: [![Binder](http://mybinder.org/badge_logo.svg)](http://mybinder.org/v2/gh/benmarwick/SCU-UIP-2026./main?urlpath=rstudio) No No log in required, but file changes do not persist beyond the current session, download your work to your device before closing the tab.
+Click on this button to write code in RStudio in your web browser: [![Binder](http://mybinder.org/badge_logo.svg)](http://mybinder.org/v2/gh/benmarwick/SCU-UIP-2026./main?urlpath=rstudio) Note that no log in required, but file changes do not persist beyond the current session, and your session will time out after a while. So download your work to your device before closing or moveing away from the tab.
 
 ## Prerequisites
 
