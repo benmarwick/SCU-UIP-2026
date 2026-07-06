@@ -111,7 +111,10 @@ PDFs for student readings are in the `readings/` directory.
 
 ## Troubleshooting
 
-Students sometimes experience cryptic errors that turn out to be related to encoding and file paths. These can usually be fixed by having them creating RStudio projects in C:/ not in desktop or downloads, and by running this line in the R console and then restarting RStudio: 
+When installing packages students sometimes see this warning message in the R console: `WARNING: Rtools is required to build R packages`. The fix is: (1) Go to the official CRAN Rtools page:
+https://cran.r-project.org/bin/windows/Rtools/ and download the highest version number. (2) Run the installer by executing the downloaded .exe file. (3) During installation, you will see a checkbox asking to "Add Rtools to the system PATH". Make sure this box is CHECKED. This allows R to automatically find the tools. (4) Restart RStudio and install the R packages again using the `install.packages` function as before, this time it should succeed.
+
+When rendering Quarto documents students sometimes experience cryptic errors that turn out to be related to encoding and file paths. These can usually be fixed by having them creating RStudio projects in C:/ not in desktop or downloads, and by running this line in the R console and then restarting RStudio: 
 
 ```r
 Sys.setenv(TMPDIR = "C:/TEMP"); Sys.setenv(TMPDIR = "C:/quarto_tmp"); Sys.setlocale("LC_ALL", "English_United States.UTF-8") # Now you need to RESTART RStudio
