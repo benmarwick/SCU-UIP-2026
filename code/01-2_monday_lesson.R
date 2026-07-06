@@ -3,6 +3,7 @@
 # =============================================================================
 # LEARNING OBJECTIVES:
 #   1. understanding functions (arguments, help), objects (types, inspecting)
+#   2. packages, installing them and getting help
 #   2. importing data with read_csv
 #   3. inspecting data with glimpse and head
 #.  4. data types: dbl, chr
