@@ -115,14 +115,14 @@ https://cran.r-project.org/bin/windows/Rtools/ and download the highest version 
 
 When rendering Quarto documents students sometimes experience cryptic errors that turn out to be related to encoding and file paths. These can usually be fixed in three steps:
 
-**First**, install R and RStudio on Windows not in the default `C:\Program Files` folder. Instead, install them directly in the root of the `C:` drive using a simple folder name that contains only English letters, like `C:\R` or `C:\RStudio`. Do not install on a USB drive, desktop or downloads or similar folders.
+**First**, remove and re-install R and RStudio on Windows *not* in the default `C:\Program Files` folder. Instead, install them directly in the root of the `C:` drive using a simple folder name that contains only English letters, like `C:\R` or `C:\RStudio`. Do not install on a USB drive, desktop or downloads or similar folders.
 
 **Second**, create the RStudio project in a folder path that uses only English letters and numbers. Never use folder names with Chinese characters (like 桌面) or special symbols: do not create the RStudio project on the desktop or downloads or similar folders. The safest place is a folder created directly on the `C:` drive, such as `C:\MyProjects`.
 
-**Third**, run this line in the R console and then exit and restart RStudio: 
+**Third**, run this line in the R console, and then exit and restart RStudio: 
 
 ```r
-Sys.setenv(TMPDIR = "C:/TEMP"); Sys.setenv(TMPDIR = "C:/quarto_tmp"); Sys.setlocale("LC_ALL", "English_United States.UTF-8") # Now you need to RESTART RStudio
+dir.create("C:/TEMP", showWarnings = FALSE); Sys.setenv(TMP = "C:/TEMP", TEMP = "C:/TEMP", TMPDIR = "C:/TEMP"); Sys.setlocale("LC_ALL", "English_United States.UTF-8") # Now you need to RESTART RStudio
 ```
 
 ## License
