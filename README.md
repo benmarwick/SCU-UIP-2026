@@ -37,7 +37,7 @@ If you are not able to install software on a device, click on this button to wri
 
 ## Dataset
 
-`lithics_raw.csv` contains 300 simulated artefacts (100 per period) with 10 variables. Variable distributions and inter-period patterns are based on published literature on Palaeolithic lithic technology, including raw material provisioning strategies (Bourguignon et al. 2008), platform preparation and preparatory scarring (Shimelmitz et al. 2014), and the flake-to-blade technological trajectory (Bar-Yosef & Kuhn 1999).
+`lithics_raw.csv` contains 300 simulated artefacts (100 per period) with 10 variables. Variable distributions and inter-period patterns are based on published literature on Palaeolithic lithic technology, including raw material provisioning strategies, platform preparation and preparatory scarring (Shimelmitz et al. 2014), and the flake-to-blade technological trajectory (Bar-Yosef & Kuhn 1999).
 
 | Variable | Description |
 |----------|-------------|
