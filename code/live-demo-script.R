@@ -11,15 +11,13 @@ lithics_step1 <- lithics_raw |>
   mutate(
     length_mm = parse_number(length_mm),
     platform_mm = parse_number(platform_mm),
-    weight_g  = parse_number(weight_g)
-  ) |> 
+    weight_g  = parse_number(weight_g)) |> 
   mutate(elongation = length_mm / width_mm) # so we can see this change
 
 lithics_step2 <- lithics_step1 |>
   mutate(raw_material = str_squish(raw_material))
 
 lithics_step1 |> distinct(raw_material)   # whitespace variants still visible
-
 lithics_step2 |> distinct(raw_material)   # whitespace collapsed, but case/typo remain
 
 lithics_step3 <- lithics_step2 |>
@@ -35,8 +33,7 @@ lithics_clean <- lithics_step3 |>
     length_mm < 200,        # no unmodified flake in this assemblage exceeds
     weight_g < 500,           # no flake this size/density combination should
     thickness_mm > 0,        # approach 500g - flags the transposed-weight row
-    giur <= 1
-  )
+    giur <= 1)
 
 boxplot(length_mm ~ period, data = lithics_clean)
 

@@ -40,8 +40,7 @@ lithics_step1 <- lithics_raw |>
   mutate(
     length_mm = parse_number(length_mm),
     platform_mm = parse_number(platform_mm),
-    weight_g  = parse_number(weight_g)
-  ) |> 
+    weight_g  = parse_number(weight_g)) |> 
   mutate(elongation = length_mm / width_mm) # so we can see this change
 
 # INTERPRETATION: length_mm and weight_g are now <dbl>. Note thickness_mm,
@@ -124,8 +123,7 @@ lithics_clean <- lithics_step3 |>
     length_mm < 200,        # no unmodified flake in this assemblage exceeds
     weight_g < 500,           # no flake this size/density combination should
     thickness_mm > 0,        # approach 500g - flags the transposed-weight row
-    giur <= 1
-  )
+    giur <= 1)
 
 # INTERPRETATION: compare row counts before/after filter() to quantify how
 # much was removed - this number should be SMALL (a handful of rows out of
