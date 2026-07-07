@@ -7,7 +7,7 @@ A four-day workshop teaching introductory R for archaeological data analysis, us
 
 No prior R experience is required. These lessons cover RStudio orientation, objects, functions, and data import from scratch.
 
-Install on your computer as follows, Windows users must install these 
+Install on your computer as follows, Windows users must install them directly in the root of the `C:` drive using a simple folder name that contains only English letters, like `C:\R` or `C:\RStudio`:
 
 - [R](https://cloud.r-project.org/) 
 - [RStudio](https://posit.co/download/rstudio-desktop/) 
@@ -115,7 +115,7 @@ https://cran.r-project.org/bin/windows/Rtools/ and download the highest version 
 
 When rendering Quarto documents students sometimes experience cryptic errors that turn out to be related to encoding and file paths. These can usually be fixed in three steps:
 
-**First**, install R and RStudio on Windows not in the default `C:\Program Files` folder. Instead, install them directly in the root of the `C:` drive using a simple folder name that contains only English letters, like `C:\R` or `C:\RStudio`.
+**First**, install R and RStudio on Windows not in the default `C:\Program Files` folder. Instead, install them directly in the root of the `C:` drive using a simple folder name that contains only English letters, like `C:\R` or `C:\RStudio`. Do not install on a USB drive, desktop or downloads or similar folders.
 
 **Second**, create the RStudio project in a folder path that uses only English letters and numbers. Never use folder names with Chinese characters (like 桌面) or special symbols: do not create the RStudio project on the desktop or downloads or similar folders. The safest place is a folder created directly on the `C:` drive, such as `C:\MyProjects`.
 
