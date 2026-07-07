@@ -11,7 +11,16 @@ Install on your computer as follows, Windows users must install them directly in
 
 - [R](https://cloud.r-project.org/) 
 - [RStudio](https://posit.co/download/rstudio-desktop/) 
-- Install required packages: `install.packages(c("tidyverse", "ggcorrplot", "broom", "FactoMineR", "factoextra", "GGally"))`
+- Install required packages by pasting these lines into the R console: 
+
+```r
+# for faster downloading and avoiding dependency conflicts from mirror lag
+options(repos = c(CRAN = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
+# be resiliant to low bandwidth
+options(timeout = 600)
+# use binaries only to avoid need for Rtools
+install.packages(c("tidyverse", "ggcorrplot", "broom", "FactoMineR", "factoextra", "GGally"), type = "binary")
+```
 
 If you are not able to install software on a device, click on this button to write code in RStudio in your web browser: [![Binder](http://mybinder.org/badge_logo.svg)](http://mybinder.org/v2/gh/benmarwick/SCU-UIP-2026/HEAD?urlpath=rstudio) Note that no log in is required, but file changes do not persist beyond the current session, and your session will time out after a short while. So download your work to your device before closing or moving away from the tab. The moment you close your browser tab, your Binder session is deleted. Any changes you make will be permanently lost. To move a file into RStudio, go to the Files pane and click 'upload'. To export a file, go to the files pane, check the box next to the file name, then click the blue gear button and click 'Export...'
 
