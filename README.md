@@ -80,6 +80,8 @@ SCU-UIP-2026/
 ├── readings/                        # PDFs for student readings
 ├── slides/                          # Lecture slides (gitignored)
 ├── Dockerfile                       # Binder configuration
+├── install.R                        # R pkg installation for Binder
+├── rstudio-prefs.json               # Set RStudio prefs in Binder 
 ├── CLAUDE.md                        # AI agent instructions
 ├── SCU-UIP-2026.Rproj               # RStudio project file
 └── README.md
