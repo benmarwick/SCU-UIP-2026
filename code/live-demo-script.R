@@ -18,6 +18,7 @@ lithics_step2 <- lithics_step1 |>
   mutate(raw_material = str_squish(raw_material))
 
 lithics_step1 |> distinct(raw_material)   # whitespace variants still visible
+
 lithics_step2 |> distinct(raw_material)   # whitespace collapsed, but case/typo remain
 
 lithics_step3 <- lithics_step2 |>
@@ -49,11 +50,7 @@ library(tidyverse)
 lithics <- read_csv("data/lithics_clean.csv") |>
   mutate( # factor conversions control plot ordering. Without them, ggplot sorts alphabetically
     period = factor(period, 
-                    levels = c("Lower", "Middle", "Upper")),
-    raw_material  = factor(raw_material,
-                    levels = c("Quartzite", "Basic Chert", "Fine Chert", "Obsidian")),
-    platform_prep = factor(platform_prep, 
-                           levels = c("Plain", "Faceted", "Abraded")))
+                    levels = c("Lower", "Middle", "Upper")))
 
 ggplot(lithics) +  # start with basic histogram that we develop
   aes(x = elongation) + 

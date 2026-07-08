@@ -14,11 +14,7 @@ library(tidyverse)
 lithics <- read_csv("data/lithics_clean.csv") |>
   mutate( # factor conversions control plot ordering. Without them, ggplot sorts alphabetically
     period = factor(period, 
-                    levels = c("Lower", "Middle", "Upper")),
-    raw_material  = factor(raw_material,
-                    levels = c("Quartzite", "Basic Chert", "Fine Chert", "Obsidian")),
-    platform_prep = factor(platform_prep, 
-                           levels = c("Plain", "Faceted", "Abraded")))
+                    levels = c("Lower", "Middle", "Upper")))
 
 # --- Histogram: elongation distribution by period ---------------------------
 # WHY: a histogram shows DISTRIBUTION SHAPE, not just a single mean - this

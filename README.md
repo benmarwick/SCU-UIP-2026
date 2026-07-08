@@ -18,7 +18,7 @@ Install on your computer as follows, Windows users must install them directly in
 options(repos = c(CRAN = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
 # be resiliant to low bandwidth
 options(timeout = 600)
-# use binaries only to avoid need for Rtools
+# only use binaries to reduce need for Rtools
 install.packages(c("tidyverse", "ggcorrplot", "broom", "FactoMineR", "factoextra", "GGally"), type = "binary")
 ```
 
