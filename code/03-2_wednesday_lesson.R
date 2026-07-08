@@ -2,12 +2,12 @@
 # DAY: Wednesday | LESSON: 2 (Statistical Inference) | 45 minutes
 # =============================================================================
 # LEARNING OBJECTIVES:
-#   1. Use geom_count() correctly for an EDA check before a formal test
-#   2. Run and interpret a chi-square test of independence, then diagnose
+#   1. Run and interpret a chi-square test of independence, then diagnose
 #      WHICH cells drive the association using standardized residuals
 #      visualised with ggcorrplot
-#   3. Run ANOVA + Tukey HSD, then visualise the pairwise comparisons as a
+#   2. Run ANOVA + Tukey HSD, then visualise the pairwise comparisons as a
 #      tidy forest plot using broom::tidy() + geom_pointrange()
+#   
 # =============================================================================
 
 library(ggcorrplot)
