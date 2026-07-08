@@ -9,6 +9,8 @@
     "always_save_history": false,
     "rmd_chunk_output_inline": false,
     "visual_markdown_editing_show_doc_outline": false,
+    "visual_markdown_editing_is_default": false,
+    "visual_markdown_code_editor_line_numbers": true,
     "show_invisibles": true,
     "rmd_viewer_type": "pane",
     "panes": {
