@@ -23,7 +23,11 @@ library(broom)
 #      p < 0.0001 for platform type vs preparatory scarring in Yabrudian
 #      assemblages. The test below is the same KIND of result, not a
 #      simulation artefact invented for this workshop.
-chi_sq_test <- chisq.test(table(lithics$period, lithics$platform_prep))
+chi_sq_test <- 
+  table(lithics$period,
+        lithics$platform_prep) |> 
+  chisq.test()
+
 chi_sq_test # report chi-square statistic, df, and p-value here. 
 
 # A p-value below 0.05 (expected: well below it, by design) means we reject

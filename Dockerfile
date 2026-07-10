@@ -14,13 +14,11 @@ COPY install.R /tmp/install.R
 RUN mkdir -p /home/${NB_USER}/.config/rstudio/
 COPY rstudio-prefs.json /home/${NB_USER}/.config/rstudio/rstudio-prefs.json
 
-
 RUN Rscript /tmp/install.R
 
-# ---  Copy your GitHub files into the container ---
+# ---  Copy GitHub files into the container ---
 # Copy all files from your repo into the home directory
 COPY .  /home/${NB_USER}/
-
 
 #  permissions so the binder user owns everything
 USER root

@@ -47,10 +47,7 @@ write_csv(lithics_clean, "data/lithics_clean.csv")
 
 library(tidyverse)
 
-lithics <- read_csv("data/lithics_clean.csv") |>
-  mutate( # factor conversions control plot ordering. Without them, ggplot sorts alphabetically
-    period = factor(period, 
-                    levels = c("Lower", "Middle", "Upper")))
+lithics <- read_csv("data/lithics_clean.csv") 
 
 ggplot(lithics) +  # start with basic histogram that we develop
   aes(x = elongation) + 
@@ -102,7 +99,11 @@ ggplot(lithics) + # more elaborate scatterplot
 library(ggcorrplot)
 library(broom)
 
-chi_sq_test <- chisq.test(table(lithics$period, lithics$platform_prep))
+chi_sq_test <- 
+
+  table(lithics$period,
+        lithics$platform_prep) |> 
+  chisq.test()
 
 chi_sq_test # report chi-square statistic, df, and p-value here. 
 
@@ -142,10 +143,7 @@ library(tidyverse)
 library(FactoMineR)
 library(factoextra)
 
-lithics <- read_csv("data/lithics_clean.csv") |>
-  mutate(
-    period       = factor(period, 
-                          levels = c("Lower", "Middle", "Upper")))
+lithics <- read_csv("data/lithics_clean.csv") 
 
 library(GGally)
 
@@ -154,36 +152,29 @@ ggpairs(lithics, # we have too many variables to easily interpret, we need
         ggplot2::aes(colour = period))
 
 pca_vars <- lithics |>
-  dplyr::select(length_mm, 
+      select(length_mm, 
                 width_mm, 
                 thickness_mm, 
                 platform_mm, 
                 weight_g,
+                elongation,
                 period) |>
   drop_na()  # PCA cannot handle missing values 
 
-pca_fit <- PCA(pca_vars |> dplyr::select(-period),
+pca_fit <- PCA(pca_vars |> select(-period),
                scale.unit = TRUE, 
                graph = FALSE)
 
-fviz_eig(pca_fit, addlabels = TRUE) +
-  scale_fill_viridis_d(option = "D") +
-  labs(x = "Principal component",
-       y = "Percentage of variance explained")
+fviz_eig(pca_fit, addlabels = TRUE) 
 
-fviz_contrib(pca_fit, choice = "var", axes = 1) +
-  scale_fill_viridis_c(option = "D")
+fviz_contrib(pca_fit, choice = "var", axes = 1) 
 
-fviz_contrib(pca_fit, choice = "var", axes = 2) +
-  scale_fill_viridis_c(option = "D")
+fviz_contrib(pca_fit, choice = "var", axes = 2) 
 
 fviz_pca_biplot(
   pca_fit,
   habillage = pca_vars$period,  # align after drop_na()
   addEllipses = TRUE,
   label = "var",
-  repel = TRUE) +
-  scale_colour_brewer(palette = "Dark2") +
-  scale_fill_brewer(palette = "Dark2") +
-  labs(x = NULL, y = NULL, colour = "Period", fill = "Period", shape = "Period")
+  repel = TRUE) 
 

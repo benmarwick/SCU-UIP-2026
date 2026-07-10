@@ -22,7 +22,7 @@ options(timeout = 600)
 install.packages(c("tidyverse", "ggcorrplot", "broom", "FactoMineR", "factoextra", "GGally"), type = "binary")
 ```
 
-If you are not able to install software on a device, click on this button to write code in RStudio in your web browser: [![Binder](http://mybinder.org/badge_logo.svg)](http://mybinder.org/v2/gh/benmarwick/SCU-UIP-2026/HEAD?urlpath=rstudio) Note that no log in is required, but file changes do not persist beyond the current session, and your session will time out after a short while. So download your work to your device before closing or moving away from the tab. The moment you close your browser tab, your Binder session is deleted. Any changes you make will be permanently lost. To move a file into RStudio, go to the Files pane and click 'upload'. To export a file, go to the files pane, check the box next to the file name, then click the blue gear button and click 'Export...'
+If you are not able to install the software on a device, or have issues with installing packages, click on this button to write code in RStudio in your web browser: [![Binder](http://mybinder.org/badge_logo.svg)](http://mybinder.org/v2/gh/benmarwick/SCU-UIP-2026/HEAD?urlpath=rstudio) Note that no log in is required, but file changes do not persist beyond the current session, and your session will time out after a short while. So download your work to your device before closing or moving away from the tab. The moment you close your browser tab, your Binder session is deleted. Any changes you make will be permanently lost. To move a file into RStudio, go to the Files pane and click 'upload'. To export a file, go to the files pane, check the box next to the file name, then click the blue gear button and click 'Export...'
 
 ## Workshop Schedule
 
@@ -124,13 +124,15 @@ PDFs for student readings are in the `readings/` directory.
 When installing packages students sometimes see this warning message in the R console: `WARNING: Rtools is required to build R packages`. The fix is: (1) Go to the official CRAN Rtools page:
 https://cran.r-project.org/bin/windows/Rtools/ and download the highest version number. (2) Run the installer by executing the downloaded .exe file. (3) During installation, you will see a checkbox asking to "Add Rtools to the system PATH". Make sure this box is CHECKED. This allows R to automatically find the tools. (4) Restart RStudio and install the R packages again using the `install.packages` function as above, this time it should succeed without any warnings.
 
-When rendering Quarto documents students sometimes experience cryptic errors that turn out to be related to encoding and file paths. These can usually be fixed in three steps:
+When rendering Quarto documents students sometimes experience cryptic errors that turn out to be related to encoding and file paths. These can usually be fixed in four steps:
 
-**First**, remove and re-install R and RStudio on Windows *not* in the default `C:\Program Files` folder. Instead, install them directly in the root of the `C:` drive using a simple folder name that contains only English letters, like `C:\R` or `C:\RStudio`. Do not install on a USB drive, desktop or downloads or similar folders.
+**First**, Open Windows Settings → Time & Language → Language & Region → Administrative Language Settings → Change system locale, then check "Beta: Use Unicode UTF-8 for worldwide language support" and restart.
 
-**Second**, create the RStudio project in a folder path that uses only English letters and numbers. Never use folder names with Chinese characters (like 桌面) or special symbols: do not create the RStudio project on the desktop or downloads or similar folders. The safest place is a folder created directly on the `C:` drive, such as `C:\MyProjects`.
+**Second**, remove and re-install R and RStudio on Windows *not* in the default `C:\Program Files` folder. Instead, install them directly in the root of the `C:` drive using a simple folder name that contains only English letters, like `C:\R` or `C:\RStudio`. Do not install on a USB drive, desktop or downloads or similar folders.
 
-**Third**, run this line in the R console, and then exit and restart RStudio: 
+**Third**, create the RStudio project in a folder path that uses only English letters and numbers. Never use folder names with Chinese characters (like 桌面) or special symbols: do not create the RStudio project on the desktop or downloads or similar folders. The safest place is a folder created directly on the `C:` drive, such as `C:\MyProjects`.
+
+**Fourth**, run this line in the R console, and then exit and restart RStudio: 
 
 ```r
 dir.create("C:/TEMP", showWarnings = FALSE); Sys.setenv(TMP = "C:/TEMP", TEMP = "C:/TEMP", TMPDIR = "C:/TEMP"); Sys.setlocale("LC_ALL", "English_United States.UTF-8") # Now you need to RESTART RStudio

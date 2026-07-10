@@ -12,10 +12,7 @@ library(tidyverse)
 library(FactoMineR)
 library(factoextra)
 
-lithics <- read_csv("data/lithics_clean.csv") |>
-  mutate(
-    period       = factor(period, 
-                          levels = c("Lower", "Middle", "Upper")))
+lithics <- read_csv("data/lithics_clean.csv") 
 
 library(GGally)
 ggpairs(lithics, # we have too many variables to easily interpret, we need 
@@ -32,11 +29,12 @@ ggpairs(lithics, # we have too many variables to easily interpret, we need
 #      for SEEING multivariate structure, not a black box.
 
 pca_vars <- lithics |>
-  dplyr::select(length_mm, 
+      select(length_mm, 
                 width_mm, 
                 thickness_mm, 
                 platform_mm, 
                 weight_g,
+                elongation,
                 period) |>
   drop_na()  # PCA cannot handle missing values 
 
@@ -47,7 +45,7 @@ pca_vars <- lithics |>
 #      variable is most archaeologically informative. scale.unit = TRUE
 #      puts all five variables on a comparable footing before finding
 #      principal components.
-pca_fit <- PCA(pca_vars |> dplyr::select(-period),
+pca_fit <- PCA(pca_vars |> select(-period),
                scale.unit = TRUE, 
                graph = FALSE)
 
@@ -55,10 +53,7 @@ pca_fit <- PCA(pca_vars |> dplyr::select(-period),
 # WHY: before interpreting PC1/PC2, confirm they actually capture most of
 #      the meaningful variation. If PC1+PC2 explain well over half the
 #      total variance, focusing on just those two is justified.
-fviz_eig(pca_fit, addlabels = TRUE) +
-  scale_fill_viridis_d(option = "D") +
-  labs(x = "Principal component",
-       y = "Percentage of variance explained")
+fviz_eig(pca_fit, addlabels = TRUE) 
 
 # INTERPRETATION: expect PC1 alone to explain a large share of variance
 # (likely 50-65%) because length, width, thickness, platform, and weight
@@ -72,11 +67,9 @@ fviz_eig(pca_fit, addlabels = TRUE) +
 #      COMBINATIONS of the original variables. Looking at which variables
 #      contribute most to each component is how we give PC1/PC2 an
 #      archaeological NAME rather than leaving them as anonymous axes.
-fviz_contrib(pca_fit, choice = "var", axes = 1) +
-  scale_fill_viridis_c(option = "D")
+fviz_contrib(pca_fit, choice = "var", axes = 1) 
 
-fviz_contrib(pca_fit, choice = "var", axes = 2) +
-  scale_fill_viridis_c(option = "D")
+fviz_contrib(pca_fit, choice = "var", axes = 2) 
 
 # INTERPRETATION: expect length, width, thickness, and weight to all
 # contribute strongly and roughly equally to PC1 - this is why PC1 can be
@@ -100,10 +93,11 @@ fviz_pca_biplot(
   habillage = pca_vars$period,  # align after drop_na()
   addEllipses = TRUE,
   label = "var",
-  repel = TRUE) +
-  scale_colour_brewer(palette = "Dark2") +
-  scale_fill_brewer(palette = "Dark2") +
-  labs(x = NULL, y = NULL, colour = "Period", fill = "Period", shape = "Period")
+  repel = TRUE) 
+  # scale_colour_brewer(palette = "Dark2") +
+  # scale_fill_brewer(palette = "Dark2") +
+  # labs(x = NULL, y = NULL, colour = "Period", fill = "Period", shape = "Period")
+
 
 # INTERPRETATION: points (individual artefacts) separate primarily ALONG
 # PC2 by period - Lower Palaeolithic artefacts cluster toward one end,
